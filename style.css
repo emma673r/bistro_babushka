@@ -1,0 +1,126 @@
+@font-face {
+  font-family: Kremlin;
+  src: url(fonts/kremlin-webfont.woff2);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: red;
+}
+
+header {
+  background-image: url(street.jpg);
+  background-size: cover;
+  border-style: ridge;
+  border-width: 5px;
+  border-color: goldenrod;
+  padding: 10px;
+}
+
+main nav {
+  padding: 2rem;
+}
+main nav button {
+  margin-bottom: 1rem;
+  padding: 10px;
+}
+h1 {
+  font-family: kremlin;
+  font-size: 3rem;
+}
+
+h2 {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  font-family: kremlin;
+  font-size: 1.5rem;
+  color: goldenrod;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+}
+
+article {
+  border: 2px solid white;
+  border-radius: 15px 50px;
+  padding: 20px;
+  margin: 1em;
+}
+
+button {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  display: flex;
+}
+
+.valgt {
+  background-color: blue;
+  color: goldenrod;
+}
+img {
+  width: 100%;
+}
+
+footer {
+  background-color: blue;
+  padding: 30px;
+}
+
+footer h3 {
+  font-family: kremlin;
+  padding-bottom: 10px;
+}
+
+p {
+  color: white;
+}
+
+.pris {
+  font-weight: bolder;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header nav a {
+  color: white;
+  background-color: blue;
+  font-family: kremlin;
+}
+
+@media (min-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+    border-width: 10px;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 7rem;
+  }
+
+  main nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  header a {
+font-size: 2rem;
+  }
+  
+}

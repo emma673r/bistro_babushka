@@ -5,73 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bistro Babushka</title>
-    <style>
-      section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-template-rows: auto;
-      }
-      article {
-        border: 1px ridge orange;
-        border-radius: 15px 50px;
-        padding: 10px;
-        margin: 1em;
-      }
-      img {
-        max-width: 200px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section></section>
+    
+      <header>
+        <h1>BISTRO BABUSHKA</h1>
+       <nav><a href="#menu">Menu</a>
+       <a href="#footer">Info</a></nav>
+      </header>
+      <main>
+        <h2 id="kategoriH2">Alle</h2>
+         <nav class="filter">
+          <button data-kategori="alle" class="valgt">Alt på menuen</button>
+          <button data-kategori="drikkevarer">Drikkevarer</button>
+          <button data-kategori="forretter">Forretter</button>
+          <button data-kategori="hovedretter">Hovedretter</button>
+          <button data-kategori="desserter">Desserter</button>
+          <button data-kategori="sideorders">Side orders</button>
+        </nav class="filter">
+      <section id="liste"></section>
 
-    <template>
-      <article>
-        <h2></h2>
-
-        <p class="efternavn"></p>
-        <img src="" alt="" />
-        <p class="email"></p>
-      </article>
-    </template>
-    <script>
-      const url = "https://babushka-dd8a.restdb.io/rest/menu";
-      const key = "600ec2fb1346a1524ff12de4";
-      const options = {
-        headers: {
-          "x-apikey": key,
-        },
-      };
-
-   
-      const btn = document.querySelector("button");
-      const container = document.querySelector("section");
-      const temp = document.querySelector("template");
-
-      window.addEventListener("DOMContentLoaded", start);
-
-      function start() {}
-
-      async function hentdata() {
-        const respons = await fetch(url, options);
-        const json = await respons.json();
-        vis(json);
-      }
-
-      function vis(menu) {
-        console.log(menu);
-        menu.forEach((ret) => {
-          const klon = temp.cloneNode(true).content;
-          klon.querySelector("h2").textContent = ret.navn;
-       
-          klon.querySelector("img").src = `/medium/${ret.billednavn}-md.jpg`;
-          klon.querySelector("img").alt = ret.navn;
-
-          container.appendChild(klon);
-        });
-      }
-
-      hentdata();
-    </script>
+      <template>
+        <article id="menu">
+          <h3 class="navn"></h3>
+          <img src="" alt=""/>
+          <p class="kortbeskrivelse"></p>
+          <p class="pris">Pris : </p>
+        </article>
+      </template>
+    </main>
+        <footer id="footer">
+        <div>
+            <h3>Åbningstider:</h3>
+            <p>Понедельник - Пятница (Mandag - fredag) : 12:30-23:30</p>
+            <p>Суббота - Воскресенье (Lørdag - Søndag) : 11:30-01:00</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    
   </body>
 </html>
