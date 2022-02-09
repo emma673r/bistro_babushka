@@ -54,6 +54,7 @@ article {
   border-radius: 15px 50px;
   padding: 20px;
   margin: 1em;
+  cursor: pointer;
 }
 
 button {
@@ -101,6 +102,42 @@ header nav a {
   font-family: kremlin;
 }
 
+#popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: crimson;
+  overflow: scroll;
+}
+
+#popup article {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  margin: 4rem auto;
+  border-radius: 15px 50px;
+  padding: 12px;
+  background-color: blue;
+  border: white;
+  border-width: 8px;
+  border-style: solid;
+  cursor: default;
+  color: white;
+  padding: 20px;
+}
+
+#luk {
+  position: fixed;
+  padding: 1rem;
+  font-size: 1.7em;
+  font-weight: bolder;
+  color: white;
+  cursor: pointer;
+}
+
 @media (min-width: 600px) {
   header {
     display: flex;
@@ -118,9 +155,8 @@ header nav a {
     display: flex;
     justify-content: space-between;
   }
-  
+
   header a {
-font-size: 2rem;
+    font-size: 2rem;
   }
-  
 }

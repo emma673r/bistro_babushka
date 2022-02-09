@@ -11,6 +11,9 @@ const container = document.querySelector("section");
 const temp = document.querySelector("template");
 const h2 = document.querySelector("#kategoriH2");
 
+const popup = document.querySelector("#popup");
+const luk = document.querySelector("#luk");
+
 let retter;
 let filter = "alle";
 
@@ -49,9 +52,25 @@ function visMenu() {
       klon.querySelector("img").src = `/medium/${ret.billednavn}-md.jpg`;
       klon.querySelector("img").alt = ret.navn;
 
+      klon
+        .querySelector("article")
+        .addEventListener("click", () => visDetaljer(ret));
+
       container.appendChild(klon);
     }
   });
 }
+
+function visDetaljer(ret) {
+  console.log("retten er: ", ret);
+  popup.style.display = "block";
+  popup.querySelector("img").src = `/medium/${ret.billednavn}-md.jpg`;
+  popup.querySelector("img").alt = ret.navn;
+  popup.querySelector("h2").textContent = ret.navn;
+  popup.querySelector(".langbeskrivelse").textContent = ret.langbeskrivelse;
+  popup.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+  popup.querySelector(".pris").textContent = `${ret.pris} dkk`;
+}
+luk.addEventListener("click", () => (popup.style.display = "none"));
 
 hentData();
