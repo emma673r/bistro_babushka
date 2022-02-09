@@ -6,33 +6,52 @@ const options = {
   },
 };
 
-const btn = document.querySelector("button");
+const btn = document.querySelectorAll("button");
 const container = document.querySelector("section");
 const temp = document.querySelector("template");
+const h2 = document.querySelector("#kategoriH2");
+
+let retter;
+let filter = "alle";
 
 window.addEventListener("DOMContentLoaded", start);
 
-function start() {}
-
-async function hentdata() {
-  const respons = await fetch(url, options);
-  const json = await respons.json();
-  vis(json);
+function start() {
+  btn.forEach((knap) => knap.addEventListener("click", filtrerMenu));
+  hentData();
 }
 
-function vis(menu) {
-  console.log(menu);
+function filtrerMenu() {
+  filter = this.dataset.kategori;
+  document.querySelector(".valgt").classList.remove("valgt");
+  this.classList.add("valgt");
+
+  visMenu();
+  h2.textContent = this.textContent;
+}
+
+async function hentData() {
+  const respons = await fetch(url, options);
+  menu = await respons.json();
+  visMenu();
+}
+
+function visMenu() {
+  console.log("menu", menu);
+  container.textContent = "";
   menu.forEach((ret) => {
-    const klon = temp.cloneNode(true).content;
-    klon.querySelector(".navn").textContent = ret.navn;
-    klon.querySelector(".pris").textContent += ret.pris + " dkk";
-    klon.querySelector(".kortbeskrivelse").textContent = ret.kortbeskrivelse;
+    if (filter == ret.kategori || filter == "alle") {
+      const klon = temp.cloneNode(true).content;
 
-    klon.querySelector("img").src = `/medium/${ret.billednavn}-md.jpg`;
-    klon.querySelector("img").alt = ret.navn;
+      klon.querySelector(".navn").textContent = ret.navn;
+      klon.querySelector(".pris").textContent += ret.pris + " dkk";
+      klon.querySelector(".kortbeskrivelse").textContent = ret.kortbeskrivelse;
+      klon.querySelector("img").src = `/medium/${ret.billednavn}-md.jpg`;
+      klon.querySelector("img").alt = ret.navn;
 
-    container.appendChild(klon);
+      container.appendChild(klon);
+    }
   });
 }
 
-hentdata();
+hentData();
