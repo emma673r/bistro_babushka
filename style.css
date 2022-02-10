@@ -62,11 +62,14 @@ button {
   color: white;
   border: none;
   display: flex;
+  display: block;
+  width: 100%;
 }
 
 .valgt {
   background-color: blue;
   color: goldenrod;
+  /* display: none; */
 }
 img {
   width: 100%;
@@ -158,5 +161,9 @@ header nav a {
 
   header a {
     font-size: 2rem;
+  }
+
+  button {
+   width: max-content;
   }
 }
