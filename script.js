@@ -66,7 +66,7 @@ function visDetaljer(ret) {
   popup.style.display = "block";
   popup.querySelector("img").src = `/medium/${ret.billednavn}-md.jpg`;
   popup.querySelector("img").alt = ret.navn;
-  popup.querySelector("h2").textContent = ret.navn;
+  popup.querySelector("h3").textContent = ret.navn;
   popup.querySelector(".langbeskrivelse").textContent = ret.langbeskrivelse;
   popup.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
   popup.querySelector(".pris").textContent = `${ret.pris} dkk`;
